@@ -1,0 +1,9 @@
+.DS_Store
+config/configstore
+config/yarn
+local/share/Trash
+local/share/nvim
+local/share/tmux
+*.lock
+*.zcompdump*
+.zhistory
