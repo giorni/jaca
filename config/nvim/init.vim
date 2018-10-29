@@ -18,7 +18,9 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-surround'
 Plug 'tmux-plugins/vim-tmux'
+Plug 'sheerun/vim-polyglot'
 Plug 'fenetikm/falcon'
+Plug 'editorconfig/editorconfig-vim'
 " terryma/vim-multiple-cursors
 call plug#end()
 
@@ -30,6 +32,8 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
+let g:falcon_background = 0
+let g:falcon_inactive = 1
 colorscheme falcon
 let g:falcon_airline = 1
 let g:airline_theme = 'falcon'
@@ -59,6 +63,8 @@ set backspace=indent,eol,start  "Allow backspace in insert mode
 set showcmd                     "Show incomplete cmds down the bottom
 set showmode                    "Show current mode down the bottom
 set autoread                    "Reload files changed outside vim
+set nowrap                      "Don't wrap lines
+set linebreak                   "Wrap lines at convenient points
 " set visualbell                  "No sounds
 set list
 syntax on
@@ -66,14 +72,14 @@ filetype on
 filetype plugin on
 filetype indent on
 
-" ident
+" indent
 set autoindent
 set smartindent
 set smarttab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-set expandtab
+set shiftwidth=2  "indentation size
+set softtabstop=2 "tab key actual inserted spaces
+set tabstop=2     "normal tab char spaces size
+set expandtab     "expand tab to spaces on insert
 
 " search
 set incsearch
@@ -85,3 +91,17 @@ set smartcase
 " set noswapfile
 " set nobackup
 " set nowb
+
+set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+set wildignore+=*vim/backups*
+set wildignore+=*sass-cache*
+set wildignore+=*DS_Store*
+set wildignore+=vendor/rails/**
+set wildignore+=vendor/cache/**
+set wildignore+=*.gem
+set wildignore+=log/**
+set wildignore+=tmp/**
+set wildignore+=*.png,*.jpg,*.gif
+set wildignore+=node_modules/**
+set wildignore+=bower_components/**
+set wildignore+=src-electron/**

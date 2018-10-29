@@ -1,0 +1,85 @@
+#!/usr/bin/env sh
+
+base="`cd "\`dirname "$0"\`" && pwd`"
+home="$HOME"
+config="${XDG_CONFIG_HOME:-"$home/.config"}"
+data="${XDG_DATA_HOME:-"$home/.local/share"}"
+
+link() {
+  target="$1"
+  from="$base/$target"
+  to="${2:-"$config/$1"}"
+
+  echo "linking $target to $to"
+
+  ln -fns "$from" "$to"
+}
+
+link_all() {
+  target="$1"
+  from="$base/$target"
+  to="$2"
+
+  echo "linking all in $target to $to"
+
+  for f in "$from"/*; do
+    name="`basename "$f"`"
+    ln -fns "$f" "$to$name"
+  done
+}
+
+
+if [ "`uname`" == Darwin ]; then
+  if [ -z "`which brew`" ]; then
+    /usr/bin/ruby -e "`curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install`"
+  fi
+
+  brew install \
+    git \
+    zsh \
+    tmux \
+    neovim \
+    python \
+    fzy \
+    rg \
+    ruby-install \
+    chruby \
+    reattach-to-user-namespace
+
+  echo "/usr/local/bin/zsh" | sudo tee -a /private/etc/shells
+  chsh -s "`which zsh`"
+  cp $base/FSEX300.ttf /Library/Fonts/
+fi
+
+git submodule update --init --recursive
+
+# NeoVIM plugins dependencies
+pip3 install neovim
+
+link config $home/.config
+link local $home/.local
+link config/zsh/.zshenv $home/.zshenv
+link config/tmux/.tmux.conf $home/.tmux.conf
+link config/vim/vimrc $home/.vimrc
+link nvim /usr/local/bin/vim
+link_all config/rcs $home/.
+
+# https://github.com/junegunn/vim-plug
+curl -fLo $data/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# https://github.com/giorni/chnode
+git clone https://github.com/giorni/chnode.git $data/chnode 
+
+# should auto create config/git/user when bootstrapping
+
+# support for italics with macos and tmux
+# https://medium.com/@dubistkomisch/how-to-actually-get-italics-and-true-colour-to-work-in-iterm-tmux-vim-9ebe55ebc2be
+# basically, if needed, override xterm-256color with italics (can use same name)
+# create tmux-256color and use it
+# NO vim configuration or tmux terminal override option for italic needed (still uses Tc override)
+# more here: https://github.com/neovim/neovim/issues/3461
+
+# https://github.com/fenetikm/falcon/issues/13
+
+# http://www.fixedsysexcelsior.com
