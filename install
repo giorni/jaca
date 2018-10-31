@@ -71,6 +71,10 @@ curl -fLo $data/nvim/site/autoload/plug.vim --create-dirs \
 # https://github.com/giorni/chnode
 git clone https://github.com/giorni/chnode.git $data/chnode 
 
+# https://github.com/tmux-plugins/tpm
+mkdir -p $data/tmux/plugins/
+git clone https://github.com/tmux-plugins/tpm $data/tmux/plugins/tpm
+
 # should auto create config/git/user when bootstrapping
 
 # support for italics with macos and tmux
