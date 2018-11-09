@@ -48,7 +48,7 @@ if [ "`uname`" == Darwin ]; then
 
   echo "/usr/local/bin/zsh" | sudo tee -a /private/etc/shells
   chsh -s "`which zsh`"
-  cp $base/FSEX300.ttf /Library/Fonts/
+  cp $base/fonts/* /Library/Fonts/
 fi
 
 git submodule update --init --recursive
