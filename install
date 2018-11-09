@@ -64,6 +64,9 @@ link config/vim/vimrc $home/.vimrc
 link nvim /usr/local/bin/vim
 link_all config/rcs $home/.
 
+# Install all nvim plugins non-interactively
+nvim +PlugInstall +qall
+
 # https://github.com/junegunn/vim-plug
 curl -fLo $data/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
