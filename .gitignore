@@ -5,4 +5,5 @@ config/yarn
 local/share
 *.lock
 *.zcompdump*
+*.zcompcache*
 .zhistory
