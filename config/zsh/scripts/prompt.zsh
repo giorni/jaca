@@ -1,2 +1,0 @@
-# prompt kylewest
-prompt sorin
