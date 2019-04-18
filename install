@@ -54,7 +54,7 @@ fi
 git submodule update --init --recursive
 
 # NeoVIM plugins dependencies
-pip3 install neovim
+pip3 install pynvim
 
 link config $home/.config
 link local $home/.local
