@@ -9,6 +9,9 @@ elif [[ $unamestr == 'Darwin' ]]; then
   platform='darwin'
 fi
 
+# SSH
+alias ssh="TERM=xterm ssh"
+
 # PS
 alias psa="ps aux"
 alias psg="ps aux | grep "
