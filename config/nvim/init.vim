@@ -41,6 +41,9 @@ let g:airline_theme = 'falcon'
 " deoplete
 let g:deoplete#enable_at_startup = 1
 
+" default shell syntax
+let g:is_bash = 1
+
 " miniyank
 map p <Plug>(miniyank-autoput)
 map P <Plug>(miniyank-autoPut)
