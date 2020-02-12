@@ -26,6 +26,15 @@ call plug#end()
 
 " netrw
 let g:netrw_home=stdpath('data')."/netrw"
+" avoid netrw reload, I don't use it
+" it conflicts with vim and tmux navigation
+augroup netrw_mapping
+  autocmd!
+  autocmd filetype netrw call NetrwMapping()
+augroup END
+function! NetrwMapping()
+  nnoremap <buffer> <c-l> :wincmd l<cr>
+endfunction
 
 " colorscheme
 if (has("termguicolors"))
@@ -66,10 +75,12 @@ set backspace=indent,eol,start  "Allow backspace in insert mode
 set showcmd                     "Show incomplete cmds down the bottom
 set showmode                    "Show current mode down the bottom
 set autoread                    "Reload files changed outside vim
-set nowrap                      "Don't wrap lines
+" set nowrap                      "Don't wrap lines
+set wrap                        "Wrap lines
 set linebreak                   "Wrap lines at convenient points
 " set visualbell                  "No sounds
 set list
+set cursorline                  "Highlight cursor focused line
 syntax on
 filetype on
 filetype plugin on
