@@ -72,7 +72,7 @@ curl -fLo $data/nvim/site/autoload/plug.vim --create-dirs \
 nvim +PlugInstall +qall
 
 # https://github.com/giorni/chnode
-git clone https://github.com/giorni/chnode.git $data/chnode
+# git clone https://github.com/giorni/chnode.git $data/chnode
 
 # https://github.com/tmux-plugins/tpm
 mkdir -p $data/tmux/plugins/
@@ -90,3 +90,6 @@ git clone https://github.com/tmux-plugins/tpm $data/tmux/plugins/tpm
 # https://github.com/fenetikm/falcon/issues/13
 
 # http://www.fixedsysexcelsior.com
+
+# tic -x xterm-256color-italic.terminfo
+# tic -x tmux-256color.terminfo

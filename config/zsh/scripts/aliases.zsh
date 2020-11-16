@@ -177,3 +177,18 @@ alias brewu='brew update && brew upgrade && brew cleanup && brew doctor'
 alias n=nodemon
 alias y=yarn
 alias npmOutdated='npm -g outdated --parseable=true | cut -d : -f 4 | xargs -n 1 npm -g install'
+
+gstu() {
+  local version=${1:-0}
+  git stash show -p stash@{$version} | git apply --reverse
+}
+
+show_finder_hidden() {
+  defaults write com.apple.finder AppleShowAllFiles YES
+  killall Finder /System/Library/CoreServices/Finder.app
+}
+
+hide_finder_hidden() {
+  defaults write com.apple.finder AppleShowAllFiles NO
+  killall Finder /System/Library/CoreServices/Finder.app
+}
