@@ -6,4 +6,4 @@ local/share
 *.lock
 *.zcompdump*
 *.zcompcache*
-.zhistory
+.zsh_history

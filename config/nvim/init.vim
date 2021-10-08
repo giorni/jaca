@@ -20,7 +20,7 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-surround'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'sheerun/vim-polyglot'
-"Plug 'fenetikm/falcon'
+" Plug 'fenetikm/falcon'
 Plug 'ayu-theme/ayu-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Yggdroot/indentLine'
@@ -52,29 +52,37 @@ let ayucolor="dark"
 silent! colorscheme ayu
 hi! Normal guibg=Black
 
-" LeaderF color customization
+" LeaderF customization
+" color
 let g:Lf_PopupPalette = {
-      \  'dark': {
-      \      'Lf_hl_rgFileName': {
-      \                'gui': 'NONE',
-      \                'font': 'NONE',
-      \                'guifg': 'LightBlue',
-      \                'guibg': 'NONE',
-      \                'cterm': 'NONE',
-      \                'ctermfg': 'NONE',
-      \                'ctermbg': 'NONE'
-      \              },
-      \      'Lf_hl_bufDirname': {
-      \                'gui': 'NONE',
-      \                'font': 'NONE',
-      \                'guifg': 'LightBlue',
-      \                'guibg': 'NONE',
-      \                'cterm': 'NONE',
-      \                'ctermfg': 'NONE',
-      \                'ctermbg': 'NONE'
-      \              }
-      \  }
-      \}
+                  \  'dark': {
+                  \    'Lf_hl_rgFileName': {
+                  \      'gui': 'NONE',
+                  \      'font': 'NONE',
+                  \      'guifg': 'LightBlue',
+                  \      'guibg': 'NONE',
+                  \      'cterm': 'NONE',
+                  \      'ctermfg': 'NONE',
+                  \      'ctermbg': 'NONE'
+                  \      },
+                  \    'Lf_hl_bufDirname': {
+                  \      'gui': 'NONE',
+                  \      'font': 'NONE',
+                  \      'guifg': 'LightBlue',
+                  \      'guibg': 'NONE',
+                  \      'cterm': 'NONE',
+                  \      'ctermfg': 'NONE',
+                  \      'ctermbg': 'NONE'
+                  \    }
+                  \  }
+                  \}
+
+" rg
+let g:Lf_RgConfig = [
+                  \ "--max-columns=300",
+                  \ "--glob=!node_modules/*",
+                  \ "--glob=!dist/*",
+                  \]
 
 " legacy theme color customization
 " let g:falcon_background = 0

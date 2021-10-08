@@ -192,3 +192,18 @@ hide_finder_hidden() {
   defaults write com.apple.finder AppleShowAllFiles NO
   killall Finder /System/Library/CoreServices/Finder.app
 }
+
+rsync5() {
+  local run_rsync5='rsync -azP --exclude .DS_Store --exclude .git --exclude .gitignore --exclude extras/ --exclude lib/nemesis/ --exclude webadmin/config/routes.rb -e "ssh -i ~/.ssh/cohesive/rsync-dev" ~/zx/net/vpncubed/ cftdev@controller-v5:/opt/vpncubed/'
+  eval $run_rsync5; fswatch -o . | while read f; do eval $run_rsync5; done
+}
+
+rsync5c() {
+  local run_rsync5='rsync -azP --exclude .DS_Store --exclude webadmin/Gemfile --exclude webadmin/Gemfile.lock --exclude webadmin/vendor --exclude .git --exclude .gitignore --exclude extras/ --exclude lib/nemesis/ --exclude webadmin/config/routes.rb -e "ssh -i ~/.ssh/cohesive/rsync-dev" ~/zx/net/vpncubed/ cftdev@controller-v5:/opt/vpncubed/'
+  eval $run_rsync5; fswatch -o . | while read f; do eval $run_rsync5; done
+}
+
+rsync4() {
+  local run_rsync4='rsync -azP --exclude .DS_Store --exclude .git --exclude .gitignore --exclude extras/ --exclude lib/nemesis/ --exclude webadmin/config/routes.rb -e "ssh -i ~/.ssh/cohesive/rsync-dev" ~/zx/net/vpncubed/ cftdev@controller-v4:/opt/vpncubed/'
+  eval $run_rsync4; fswatch -o . | while read f; do eval $run_rsync4; done
+}
