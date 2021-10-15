@@ -1,7 +1,11 @@
 .DS_Store
 config/configstore
 config/git/user
+config/iterm2
+config/nvim/plugin/packer_compiled.lua
 config/yarn
+config/zsh/.iterm2*
+config/zsh/.zsh_sessions
 local/share
 *.lock
 *.zcompdump*

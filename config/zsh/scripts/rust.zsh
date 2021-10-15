@@ -1,0 +1,2 @@
+pathAppend $HOME/.cargo/bin
+

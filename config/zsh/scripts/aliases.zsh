@@ -9,6 +9,9 @@ elif [[ $unamestr == 'Darwin' ]]; then
   platform='darwin'
 fi
 
+# Dotfiles management
+alias caju="git --git-dir=$HOME/.jurubeba_lion_of_the_north --work-tree=$HOME/"
+
 # SSH
 alias ssh="TERM=xterm ssh"
 
@@ -16,6 +19,9 @@ alias ssh="TERM=xterm ssh"
 alias psa="ps aux"
 alias psg="ps aux | grep "
 alias psr='ps aux | grep ruby'
+
+# Override rm -i alias which makes rm prompt for every action
+alias rm='nocorrect rm'
 
 # Moving around
 alias cdb='cd -'
@@ -38,9 +44,8 @@ alias k9='kill -9'
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 
-# Zippin
+# Zippin - Use lrzip or lrztar, seriously...
 alias gz='tar -zcvf'
-
 
 if [[ $platform == 'linux' ]]; then
   alias ll='ls -alh --color=auto'
@@ -65,7 +70,11 @@ alias gar="killall -HUP -u \"$USER\" zsh"  #global alias reload
 # mimic vim functions
 alias :q='exit'
 
-# Git Aliases
+## Git Aliases ##
+# Don't try to glob with zsh so you can do
+# stuff like ga *foo* and correctly have
+# git add the right stuff
+alias git='noglob git'
 alias gs='git status'
 alias gstsh='git stash'
 alias gst='git stash'
@@ -130,80 +139,32 @@ alias gdmb='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 # Git tools
 alias hpr='hub pull-request'
 alias grb='git recent-branches'
-
-# Ruby/Rails
-alias c='rails c' # Rails 3+
-alias co='script/console' # Rails 2
-# Gem install
-alias sgi='sudo gem install --no-ri --no-rdoc'
-# rake db
-alias rdm='rake db:migrate'
-alias rdmr='rake db:migrate:redo'
-#If you want your thin to listen on a port for local VM development
-#export VM_IP=10.0.0.1 <-- your vm ip
-alias ts='thin start -a ${VM_IP:-127.0.0.1}'
-alias tfdl='tail -f log/development.log'
-alias tftl='tail -f log/test.log'
-# Forward port 80 to 3000
-alias portforward='sudo ipfw add 1000 forward 127.0.0.1,3000 ip from any to any 80 in'
-# zeus pre-loader
-alias zs='zeus server'
-alias zc='zeus console'
-alias zr='zeus rspec'
-alias zrc='zeus rails c'
-alias zrs='zeus rails s'
-alias zrdbm='zeus rake db:migrate'
-alias zrdbtp='zeus rake db:test:prepare'
-alias zzz='rm .zeus.sock; pkill zeus; zeus start'
-# rspec
-alias rs='rspec spec'
-alias sr='spring rspec'
-alias src='spring rails c'
-alias srgm='spring rails g migration'
-alias srdm='spring rake db:migrate'
-alias srdt='spring rake db:migrate'
-alias srdmt='spring rake db:migrate db:test:prepare'
-# spring pre-loader
-alias dbtp='spring rake db:test:prepare'
-alias dbm='spring rake db:migrate'
-alias dbmr='spring rake db:migrate:redo'
-alias dbmd='spring rake db:migrate:down'
-alias dbmu='spring rake db:migrate:up'
-
-# Homebrew
-alias brewu='brew update && brew upgrade && brew cleanup && brew doctor'
-
-# Node
-alias n=nodemon
-alias y=yarn
-alias npmOutdated='npm -g outdated --parseable=true | cut -d : -f 4 | xargs -n 1 npm -g install'
-
+# Try to remove last stash or user version
 gstu() {
   local version=${1:-0}
   git stash show -p stash@{$version} | git apply --reverse
 }
 
-show_finder_hidden() {
-  defaults write com.apple.finder AppleShowAllFiles YES
-  killall Finder /System/Library/CoreServices/Finder.app
-}
+# Ruby/Rails
+alias c='rails c' # Rails 3+
+alias co='script/console' # Rails 2
+alias tfdl='tail -f log/development.log'
+alias tftl='tail -f log/test.log'
+# Gem install
+alias sgi='sudo gem install --no-ri --no-rdoc'
+# rake db
+alias rdm='rake db:migrate'
+alias rdmr='rake db:migrate:redo'
+# Forward port 80 to 3000
+alias portforward='sudo ipfw add 1000 forward 127.0.0.1,3000 ip from any to any 80 in'
 
-hide_finder_hidden() {
-  defaults write com.apple.finder AppleShowAllFiles NO
-  killall Finder /System/Library/CoreServices/Finder.app
-}
+# Homebrew
+alias brewu='brew update && brew upgrade && brew cleanup && brew doctor'
+alias bdep='brew uses --installed'
 
-rsync5() {
-  local run_rsync5='rsync -azP --exclude .DS_Store --exclude .git --exclude .gitignore --exclude extras/ --exclude lib/nemesis/ --exclude webadmin/config/routes.rb -e "ssh -i ~/.ssh/cohesive/rsync-dev" ~/zx/net/vpncubed/ cftdev@controller-v5:/opt/vpncubed/'
-  eval $run_rsync5; fswatch -o . | while read f; do eval $run_rsync5; done
-}
+# Node
+alias ng='npm -g'
+alias npmOutdated='ng outdated --parseable=true | cut -d : -f 4 | xargs -n 1 ng install'
+alias ng0='ng ls --depth 0'
+alias n0='npm ls --depth 0'
 
-rsync5c() {
-  local run_rsync5='rsync -azP --exclude .DS_Store --exclude webadmin/Gemfile --exclude webadmin/Gemfile.lock --exclude webadmin/vendor --exclude .git --exclude .gitignore --exclude extras/ --exclude lib/nemesis/ --exclude webadmin/config/routes.rb -e "ssh -i ~/.ssh/cohesive/rsync-dev" ~/zx/net/vpncubed/ cftdev@controller-v5:/opt/vpncubed/'
-  eval $run_rsync5; fswatch -o . | while read f; do eval $run_rsync5; done
-}
-
-rsync4() {
-  local run_rsync4='rsync -azP --exclude .DS_Store --exclude .git --exclude .gitignore --exclude extras/ --exclude lib/nemesis/ --exclude webadmin/config/routes.rb -e "ssh -i ~/.ssh/cohesive/rsync-dev" ~/zx/net/vpncubed/ cftdev@controller-v4:/opt/vpncubed/'
-  eval $run_rsync4; fswatch -o . | while read f; do eval $run_rsync4; done
-}

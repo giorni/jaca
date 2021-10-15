@@ -15,7 +15,7 @@ export _FASD_DATA=$XDG_DATA_HOME/fasd/data
 export LESSHISTFILE=$XDG_DATA_HOME/less/history
 
 # mysql
-export MYSQL_HISTFILE="$XDG_DATA_HOME"/mysql/history
+export MYSQL_HISTFILE=$XDG_DATA_HOME/mysql/history
 
 # node
 export NODE_REPL_HISTORY=$XDG_DATA_HOME/node/repl_history
@@ -33,14 +33,14 @@ export RANDFILE=$XDG_CACHE_HOME/.rnd
 export PRYRC=$XDG_CONFIG_HOME/pry/pryrc
 
 # readline
-export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
+export INPUTRC=$XDG_CONFIG_HOME/readline/inputrc
 
 # rubygems - chruby
 # export GEM_HOME=$XDG_DATA_HOME/gem
 # export GEM_SPEC_CACHE=$XDG_CACHE_HOME/gem 
 
 # rust
-export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+export RUSTUP_HOME=$XDG_DATA_HOME/rustup
 
 # terminfo
 export TERMINFO=$XDG_DATA_HOME/terminfo

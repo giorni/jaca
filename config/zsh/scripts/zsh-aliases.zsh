@@ -9,6 +9,10 @@ alias -g N="| /dev/null"
 alias -g S='| sort'
 alias -g G='| grep' # now you can do: ls foo G something
 
+# Use zmv, which is amazing
+autoload -U zmv
+alias zmv="noglob zmv -W"
+
 # Functions
 #
 # (f)ind by (n)ame

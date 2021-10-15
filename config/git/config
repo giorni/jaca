@@ -126,3 +126,5 @@
   path = user
 [pull]
 	ff = only
+[init]
+  defaultBranch = tetsuo

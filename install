@@ -35,10 +35,11 @@ if [ "`uname`" == Darwin ]; then
 
   brew install \
     chruby \
+    fd \
     fzy \
     git \
+    lrzip \
     neovim \
-    # node-build \
     python \
     reattach-to-user-namespace \
     rg \
@@ -46,9 +47,11 @@ if [ "`uname`" == Darwin ]; then
     tmux \
     zsh
 
+  brew tap beeftornado/rmtree
+
   echo "/usr/local/bin/zsh" | sudo tee -a /private/etc/shells
   chsh -s "`which zsh`"
-  cp $base/fonts/* /Library/Fonts/
+  cp $base/fonts/*.ttf /Library/Fonts/
 fi
 
 git submodule update --init --recursive
@@ -93,3 +96,4 @@ git clone https://github.com/tmux-plugins/tpm $data/tmux/plugins/tpm
 
 # tic -x xterm-256color-italic.terminfo
 # tic -x tmux-256color.terminfo
+
