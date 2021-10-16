@@ -4,7 +4,28 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+" ============= Set XDG defaults ====================
+" From https://gist.github.com/dkasak/6ae1c6bf0d771155f23b
+if empty("$XDG_CACHE_HOME")
+  let $XDG_CACHE_HOME=$HOME."/.cache"
+endif
+
+if empty("$XDG_CONFIG_HOME")
+  let $XDG_CONFIG_HOME=$HOME."/.config"
+endif
+
+if empty("$XDG_DATA_HOME")
+  let $XDG_DATA_HOME=$HOME."/.local/share"
+endif
+
+let $VIMCACHE = $XDG_CACHE_HOME."/vim"
+let $VIMDATA = $XDG_DATA_HOME."/vim"
+set viminfo+=n$VIMCACHE/viminfo
+
+" This is disable, but if manually set, lets no trash our home
+let directory=$XDG_CACHE_HOME."/vim/swap,~/,/tmp"
+let backupdir=$XDG_CACHE_HOME."/vim/backup,~/,/tmp"
+
 " ============== Set new Path =======================
 " This is the most important thing ever!
 " set default 'runtimepath' (without ~/.vim folders)
@@ -12,16 +33,14 @@ let &runtimepath = printf('%s/vimfiles,%s,%s/vimfiles/after', $VIM, $VIMRUNTIME,
 
 " ALTERNATIVE what is the name of the directory containing this file?
 " let s:portable = expand('<sfile>:p:h')
-" use XDG
-let s:portable = '~/.config/vim'
+" May be used with $VIMINIT being sourced
+let s:portable = '$XDG_CONFIG_HOME/vim'
 
 " add the directory to 'runtimepath'
 let &runtimepath = printf('%s,%s,%s/after', s:portable, &runtimepath, s:portable)
 
-" set viminfo+='1000,n$XDG_CACHE_HOME/viminfo
-
 " ============= install plugins =====================
-call plug#begin('~/.local/share/vim/site/plug')
+call plug#begin($VIMDATA.'/site/plug')
 Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
@@ -59,9 +78,9 @@ set nowb
 " ================ Persistent Undo ==================
 " Keep undo history across sessions, by storing in file.
 " Only works all the time.
-if has('persistent_undo') && isdirectory(expand('~').'.cache/vim/backups')
-  silent !mkdir ~/.cache/vim/backups > /dev/null 2>&1
-  set undodir=~/.cache/vim/backups
+let &undodir = $VIMCACHE."/undo"
+if has('persistent_undo') && isdirectory($VIMCACHE)
+  call mkdir(&undodir, 'p')
   set undofile
 endif
 
