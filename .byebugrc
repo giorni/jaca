@@ -1,0 +1,6 @@
+# https://github.com/deivid-rodriguez/byebug
+
+set autolist
+set autoeval
+set autoreload
+set forcestep
