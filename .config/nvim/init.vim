@@ -7,6 +7,13 @@ let mapleader="," " o u diferentão
 " Fast alias to clear /{search} hilightning with //
 nnoremap <silent> // :let @/ = ""<cr>
 
+" Search VIM manual help_tags
+" /|.\{-}| " REF
+
+" Defaults to VIM
+" https://github.com/neovim/neovim/blob/master/runtime/doc/vim_diff.txt
+set shortmess-=F " Enable echoing from autocmd (need to read the docs better though)
+
 " install plugins
 call plug#begin(stdpath('data').'/site/plug')
 Plug 'christoomey/vim-tmux-navigator'
@@ -114,5 +121,33 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-autocmd FileType TelescopePrompt call deoplete#custom#buffer_option('auto_complete', v:false)
+nnoremap <leader>fm <cmd>Telescope keymaps<cr>
+nnoremap <leader>fc <cmd>Telescope lsp_code_actions<cr>
+
+" See  what EditorConfig is thinking about my file
+let g:EditorConfig_filetype = 1
+let g:EditorConfig_verbose = 0              " REF
+let g:editorconfig_core_vimscript_debug = 0 " REF
+
+" vsnip
+" Expand
+imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+" Expand or jump
+imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+" Jump forward or backward
+imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+" Select or cut text to use as $TM_SELECTED_TEXT in the next snippet.
+" See https://github.com/hrsh7th/vim-vsnip/pull/50
+nmap        s   <Plug>(vsnip-select-text)
+xmap        s   <Plug>(vsnip-select-text)
+nmap        S   <Plug>(vsnip-cut-text)
+xmap        S   <Plug>(vsnip-cut-text)
+" If you want to use snippet for multiple filetypes, you can `g:vsnip_filetypes` for it.
+let g:vsnip_filetypes = {}
+let g:vsnip_filetypes.ruby = ['rails']
 

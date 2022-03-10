@@ -24,6 +24,7 @@ return require('packer').startup(function(use)
           -- Instead of true it can also be a list of languages
           additional_vim_regex_highlighting = false,
         },
+        indent = { enable = true },
       }
     end
   }
@@ -49,6 +50,9 @@ return require('packer').startup(function(use)
   -- Markdown
   use { 'davidgranstrom/nvim-markdown-preview' }
 
+  -- LSP signature while typing
+  use { "ray-x/lsp_signature.nvim" }
+
   -- use {
   --   'lewis6991/gitsigns.nvim',
   --   requires = {
@@ -66,38 +70,36 @@ return require('packer').startup(function(use)
     'hrsh7th/nvim-cmp',
     requires = {
       { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
-      { 'quangnguyen30192/cmp-nvim-tags', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
-      { 'octaltree/cmp-look', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-calc', after = 'nvim-cmp' },
-      { 'ray-x/cmp-treesitter', after = 'nvim-cmp' }
+      { 'octaltree/cmp-look', after = 'nvim-cmp' },
+      { 'quangnguyen30192/cmp-nvim-tags', after = 'nvim-cmp' },
+      { 'ray-x/cmp-treesitter', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-vsnip', after = 'nvim-cmp' },
+      { 'hrsh7th/vim-vsnip', after = {'nvim-cmp', 'cmp-vsnip'} },
+      { 'rafamadriz/friendly-snippets', after = {'nvim-cmp', 'cmp-vsnip'} },
     },
     config = function()
       local cmp = require('cmp')
       local lspkind = require('lspkind')
 
       cmp.setup {
+        snippet = {
+          -- REQUIRED - you must specify a snippet engine
+          expand = function(args) vim.fn["vsnip#anonymous"](args.body) end,
+        },
         preselect = cmp.PreselectMode.None,
         completion = { completeopt = "menu,menuone,noselect,noinsert" },
         mapping = {
-          ['<C-j>'] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Select}),
-          ['<C-n>'] = cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Select}),
-          ['<C-m>'] = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = true, },
           ['<C-d>'] = cmp.mapping.scroll_docs(4),
           ['<C-u>'] = cmp.mapping.scroll_docs(-4),
           ['<C-Space>'] = cmp.mapping.complete(),
           ['<C-c>'] = cmp.mapping.close(),
-          ['<CR>'] = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = true, },
-          ['<Tab>'] = cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Select}),
-          ['<S-Tab>'] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Select}),
-          ['<C-l>'] = cmp.mapping(function()
-            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Right>', true, true, true), '', true)
-          end, { 'i', 's' }),
-          ['<C-h>'] = cmp.mapping(function()
-            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Left>', true, true, true), '', true)
-          end, { 'i', 's' }),
+          ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false, }),
+          ['<Tab>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+          ['<S-Tab>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
         },
         -- documentation = {
         --   border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
@@ -112,6 +114,7 @@ return require('packer').startup(function(use)
           -- { name = 'look', keyword_length=2 },
           { name = 'calc' },
           { name = 'treesitter' },
+          { name = 'vsnip' },
         },
         formatting = {
           format = lspkind.cmp_format({
@@ -144,6 +147,7 @@ return require('packer').startup(function(use)
   use { 'pineapplegiant/spaceduck', branch = 'main' }
   use { 'Rigellute/rigel' }
   use { 'cocopon/iceberg.vim' }
+  use { 'itchyny/landscape.vim' }
 
   -- Out-of-the-box completion - Really good, too verbose, polluted
   -- use {

@@ -22,6 +22,11 @@ This repository was created as a "birlll" repository, so that it can track files
      caju commit -a  -m 'kaneda!!!'
      caju checkout tetsuo
 
+**Step five**: Install submodule dependencies (only zsh, for now):
+
+     cd .jaca
+     caju submodule update --init --recursive
+
 ZEFINI
 
 It is perhaps more sane to merely use the github browser to cherry-pick the files and functions you want, but each to their own.
@@ -46,3 +51,12 @@ If you ever want to restore the file:
 ---
 
 Also, thanks to Greg. Nem te conheço, mas te considero pacas. [Go ninja, go ninja go!](https://stegosaurusdormant.com/bare-git-repo/)
+
+---
+
+## Update prezto
+
+     cd $ZPREZTODIR
+     git pull
+     git submodule sync --recursive
+     git submodule update --init --recursive
