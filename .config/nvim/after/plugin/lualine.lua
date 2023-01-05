@@ -1,19 +1,19 @@
-require('telescope').load_extension('fzf')
-
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'spaceduck',
-    -- component_separators = {'', ''},
-    -- section_separators = {'', ''},
-    component_separators = {' ', ' '},
-    section_separators = {' ', ' '},
-    disabled_filetypes = {}
+    theme = 'auto',
+    component_separators = '*',
+    section_separators = ' ',
+    -- component_separators = { left = '', right = ''},
+    -- section_separators = { left = '', right = ''},
+    disabled_filetypes = {},
+    always_divide_middle = false,
+    globalstatus = false
   },
   sections = {
     lualine_a = {'mode', 'gutentags#statusline'},
     lualine_b = {'branch'},
-    lualine_c = { {'filename', file_status = true} },
+    lualine_c = { {'filename', file_status = true, path = 1} },
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
@@ -27,6 +27,6 @@ require('lualine').setup {
     lualine_z = {}
   },
   tabline = {},
-  extensions = {}
+  extensions = {'fugitive'}
 }
 

@@ -14,27 +14,10 @@ nnoremap <silent> // :let @/ = ""<cr>
 " https://github.com/neovim/neovim/blob/master/runtime/doc/vim_diff.txt
 set shortmess-=F " Enable echoing from autocmd (need to read the docs better though)
 
-" install plugins
-call plug#begin(stdpath('data').'/site/plug')
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'bfredl/nvim-miniyank'
-Plug 'tomtom/tcomment_vim'
-Plug 'tpope/vim-vinegar'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-surround'
-Plug 'tmux-plugins/vim-tmux'
-Plug 'sheerun/vim-polyglot'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'Yggdroot/indentLine'
-
-" Try
-" Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-call plug#end()
-
-" Load Packer
-lua require('plugins')
-lua require('config')
-lua require('lsp_config')
+if has('nvim')
+  " Load Packer
+  lua require('plugins')
+end
 
 " general 2
 let g:is_bash = 1               " default shell syntax
@@ -104,7 +87,8 @@ if (has("termguicolors"))
   set termguicolors
 endif
 " colorscheme aquarium
-colorscheme spaceduck
+" colorscheme spaceduck
+colorscheme github_dark_default
 
 " miniyank
 map p <Plug>(miniyank-autoput)
@@ -116,18 +100,13 @@ map <Leader>c <Plug>(miniyank-tochar)
 map <Leader>l <Plug>(miniyank-toline)
 map <Leader>b <Plug>(miniyank-toblock)
 
-" Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <leader>fm <cmd>Telescope keymaps<cr>
-nnoremap <leader>fc <cmd>Telescope lsp_code_actions<cr>
+" editorconfig
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
-" See  what EditorConfig is thinking about my file
-let g:EditorConfig_filetype = 1
-let g:EditorConfig_verbose = 0              " REF
-let g:editorconfig_core_vimscript_debug = 0 " REF
+" See what EditorConfig is thinking about my file
+" let g:EditorConfig_filetype = 1
+" let g:EditorConfig_verbose = 1              " REF
+" let g:editorconfig_core_vimscript_debug = 0 " REF
 
 " vsnip
 " Expand
