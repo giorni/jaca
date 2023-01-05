@@ -4,3 +4,7 @@ AllCops:
 
 Metrics:
   Enabled: false
+
+Layout/TrailingEmptyLines:
+  EnforcedStyle: final_blank_line
+  # Enabled: false
