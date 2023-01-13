@@ -16,7 +16,7 @@ set shortmess-=F " Enable echoing from autocmd (need to read the docs better tho
 
 if has('nvim')
   " Load Packer
-  lua require('plugins')
+  lua require('jaca')
 end
 
 " general 2

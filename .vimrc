@@ -18,6 +18,7 @@ if empty("$XDG_DATA_HOME")
   let $XDG_DATA_HOME=$HOME."/.local/share"
 endif
 
+let $VIMCONFIG = $XDG_CONFIG_HOME."/vim"
 let $VIMCACHE = $XDG_CACHE_HOME."/vim"
 let $VIMDATA = $XDG_DATA_HOME."/vim"
 set viminfo+=n$VIMCACHE/viminfo
@@ -34,12 +35,17 @@ let &runtimepath = printf('%s/vimfiles,%s,%s/vimfiles/after', $VIM, $VIMRUNTIME,
 " ALTERNATIVE what is the name of the directory containing this file?
 " let s:portable = expand('<sfile>:p:h')
 " May be used with $VIMINIT being sourced
-let s:portable = '$XDG_CONFIG_HOME/vim'
+let s:portable = $VIMCONFIG
 
 " add the directory to 'runtimepath'
 let &runtimepath = printf('%s,%s,%s/after', s:portable, &runtimepath, s:portable)
 
 " ============= install plugins =====================
+if empty(glob($VIMCONFIG. '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.$VIMCONFIG.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin($VIMDATA.'/site/plug')
 Plug 'christoomey/vim-tmux-navigator'
 call plug#end()

@@ -184,6 +184,16 @@ _G.packer_plugins = {
     path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/hoob3rt/lualine.nvim"
   },
+  ["noice.nvim"] = {
+    loaded = true,
+    path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/noice.nvim",
+    url = "https://github.com/folke/noice.nvim"
+  },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -203,6 +213,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/nvim-miniyank",
     url = "https://github.com/bfredl/nvim-miniyank"
+  },
+  ["nvim-notify"] = {
+    loaded = true,
+    path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/nvim-notify",
+    url = "https://github.com/rcarriga/nvim-notify"
   },
   ["nvim-treesitter"] = {
     loaded = true,

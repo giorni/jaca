@@ -12,7 +12,7 @@ vim.g.markdown_fenced_languages = {
 -- after the language server attaches to the current buffer
 local on_attach = function(_, bufnr)
   -- Enable function signature when typing
-  require('lsp_signature').on_attach({}, bufnr)
+  -- require('lsp_signature').on_attach({}, bufnr)
 
   -- Mappings.
   local opts = { buffer=bufnr, remap=false }
@@ -40,7 +40,10 @@ end
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     capabilities = capabilities,
-    flags = { debounce_text_changes = 150, },
+    flags = {
+      debounce_text_changes = 150,
+      debounce_did_change_notify = 250
+    },
     on_attach = on_attach
   }
 end

@@ -1,5 +1,5 @@
 require('nvim-treesitter.configs').setup {
-  ensure_installed = { "bash", "c", "help", "lua", "vim" },
+  ensure_installed = { "bash", "c", "help", "lua", "vim", "regex", "markdown", "markdown_inline" },
   ignore_install = { "javascript" }, -- List of parsers to ignore installing
   highlight = {
     enable = true, -- false will disable the whole extension
