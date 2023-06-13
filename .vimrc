@@ -3,6 +3,7 @@
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+let loaded_netrwPlugin = 1
 
 " ============= Set XDG defaults ====================
 " From https://gist.github.com/dkasak/6ae1c6bf0d771155f23b
