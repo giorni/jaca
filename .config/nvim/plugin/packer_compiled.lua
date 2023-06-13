@@ -74,6 +74,17 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["Comment.nvim"] = {
+    config = { "\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\fComment\frequire\0" },
+    loaded = true,
+    path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/Comment.nvim",
+    url = "https://github.com/numToStr/Comment.nvim"
+  },
+  ["aerial.nvim"] = {
+    loaded = true,
+    path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/aerial.nvim",
+    url = "https://github.com/stevearc/aerial.nvim"
+  },
   ["aquarium-vim"] = {
     loaded = true,
     path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/aquarium-vim",
@@ -84,15 +95,15 @@ _G.packer_plugins = {
     path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/ayu-vim",
     url = "https://github.com/ayu-theme/ayu-vim"
   },
+  ["bufferline.nvim"] = {
+    loaded = true,
+    path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
+    url = "https://github.com/akinsho/bufferline.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
-  },
-  ["cmp-calc"] = {
-    loaded = true,
-    path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/cmp-calc",
-    url = "https://github.com/hrsh7th/cmp-calc"
   },
   ["cmp-cmdline"] = {
     loaded = true,
@@ -109,15 +120,15 @@ _G.packer_plugins = {
     path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["cmp-nvim-lsp-signature-help"] = {
+    loaded = true,
+    path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp-signature-help",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp-signature-help"
+  },
   ["cmp-nvim-lua"] = {
     loaded = true,
     path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
     url = "https://github.com/hrsh7th/cmp-nvim-lua"
-  },
-  ["cmp-nvim-tags"] = {
-    loaded = true,
-    path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/cmp-nvim-tags",
-    url = "https://github.com/quangnguyen30192/cmp-nvim-tags"
   },
   ["cmp-path"] = {
     loaded = true,
@@ -134,11 +145,6 @@ _G.packer_plugins = {
     path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
-  ["editorconfig.nvim"] = {
-    loaded = true,
-    path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/editorconfig.nvim",
-    url = "https://github.com/gpanders/editorconfig.nvim"
-  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -154,10 +160,10 @@ _G.packer_plugins = {
     path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/iceberg.vim",
     url = "https://github.com/cocopon/iceberg.vim"
   },
-  indentLine = {
+  ["indent-blankline.nvim"] = {
     loaded = true,
-    path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/indentLine",
-    url = "https://github.com/Yggdroot/indentLine"
+    path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["kanagawa.nvim"] = {
     loaded = true,
@@ -169,11 +175,6 @@ _G.packer_plugins = {
     path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/landscape.vim",
     url = "https://github.com/itchyny/landscape.vim"
   },
-  ["lsp_signature.nvim"] = {
-    loaded = true,
-    path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
-    url = "https://github.com/ray-x/lsp_signature.nvim"
-  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
@@ -184,15 +185,11 @@ _G.packer_plugins = {
     path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/hoob3rt/lualine.nvim"
   },
-  ["noice.nvim"] = {
+  ["nvim-autopairs"] = {
+    config = { "\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0" },
     loaded = true,
-    path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/noice.nvim",
-    url = "https://github.com/folke/noice.nvim"
-  },
-  ["nui.nvim"] = {
-    loaded = true,
-    path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/nui.nvim",
-    url = "https://github.com/MunifTanjim/nui.nvim"
+    path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
+    url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -214,20 +211,30 @@ _G.packer_plugins = {
     path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/nvim-miniyank",
     url = "https://github.com/bfredl/nvim-miniyank"
   },
-  ["nvim-notify"] = {
-    loaded = true,
-    path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/nvim-notify",
-    url = "https://github.com/rcarriga/nvim-notify"
-  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["nvim-treesitter-context"] = {
+    loaded = true,
+    path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
+  },
+  ["nvim-ts-rainbow2"] = {
+    loaded = true,
+    path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow2",
+    url = "https://github.com/HiPhish/nvim-ts-rainbow2"
+  },
+  ["nvim-ufo"] = {
+    loaded = true,
+    path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/nvim-ufo",
+    url = "https://github.com/kevinhwang91/nvim-ufo"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
-    url = "https://github.com/kyazdani42/nvim-web-devicons"
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["onedark.vim"] = {
     loaded = true,
@@ -249,6 +256,11 @@ _G.packer_plugins = {
     path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["promise-async"] = {
+    loaded = true,
+    path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/promise-async",
+    url = "https://github.com/kevinhwang91/promise-async"
+  },
   rigel = {
     loaded = true,
     path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/rigel",
@@ -259,10 +271,15 @@ _G.packer_plugins = {
     path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/spaceduck",
     url = "https://github.com/pineapplegiant/spaceduck"
   },
-  tcomment_vim = {
+  ["statuscol.nvim"] = {
     loaded = true,
-    path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/tcomment_vim",
-    url = "https://github.com/tomtom/tcomment_vim"
+    path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/statuscol.nvim",
+    url = "https://github.com/luukvbaal/statuscol.nvim"
+  },
+  ["symbols-outline.nvim"] = {
+    loaded = true,
+    path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim",
+    url = "https://github.com/simrat39/symbols-outline.nvim"
   },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
@@ -334,6 +351,17 @@ _G.packer_plugins = {
     path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/vim-vsnip",
     url = "https://github.com/hrsh7th/vim-vsnip"
   },
+  ["which-key.nvim"] = {
+    loaded = true,
+    path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
+  },
+  ["zen-mode.nvim"] = {
+    config = { "\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rzen-mode\frequire\0" },
+    loaded = true,
+    path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/zen-mode.nvim",
+    url = "https://github.com/folke/zen-mode.nvim"
+  },
   ["zephyr-nvim"] = {
     loaded = true,
     path = "/Users/giorni/.local/share/nvim/site/pack/packer/start/zephyr-nvim",
@@ -342,6 +370,18 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: zen-mode.nvim
+time([[Config for zen-mode.nvim]], true)
+try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rzen-mode\frequire\0", "config", "zen-mode.nvim")
+time([[Config for zen-mode.nvim]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
+time([[Config for Comment.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

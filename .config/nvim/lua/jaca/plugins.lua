@@ -1,42 +1,44 @@
 local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   PackerBootstrap = vim.fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  vim.cmd [[packadd packer.nvim]]
 end
 
 return require('packer').startup(function(use)
   -- Package manager
   use { 'wbthomason/packer.nvim' }
 
+  -- :StartupTime for debugging -- leave it commented
+  -- use { 'tweekmonster/startuptime.vim' }
+
   -- TODO review (all)
   use { 'christoomey/vim-tmux-navigator' }
   use { 'bfredl/nvim-miniyank' }
-  use { 'tomtom/tcomment_vim' }
   use { 'tpope/vim-vinegar' }
   use { 'tpope/vim-abolish' }
   use { 'tpope/vim-surround' }
   use { 'tmux-plugins/vim-tmux' }
   use { 'sheerun/vim-polyglot' }
-  use { 'gpanders/editorconfig.nvim' }
-  use { 'Yggdroot/indentLine' }
+
+  -- Show indentation guidelines
+  use { 'lukas-reineke/indent-blankline.nvim' }
+
+  -- Better folding
+  use {
+    'kevinhwang91/nvim-ufo',
+    requires = 'kevinhwang91/promise-async'
+  }
+  -- new nvim 0.9 status column configuration plugin
+  -- (left column with line numbers, diagnostics, folding)
+  use { 'luukvbaal/statuscol.nvim' }
 
   -- Watch https://www.youtube.com/watch?v=Jes3bD6P0To
-  -- NVIM implementation is slow right now... (not that much)
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
-
-  -- Better UI notifications?
-  use({
-    "folke/noice.nvim",
-    requires = {
-      "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
-      "rcarriga/nvim-notify",
-    }
-  })
+  use { 'nvim-treesitter/nvim-treesitter-context' }
+  use { 'HiPhish/nvim-ts-rainbow2' }
 
   -- All things for fast navigation, CMD+K style (,ff and others)
   use {
@@ -53,19 +55,48 @@ return require('packer').startup(function(use)
   -- Automatic tags management
   use { 'ludovicchabant/vim-gutentags' }
   -- Prettifier
-  use { 'kyazdani42/nvim-web-devicons' }
+  use { 'nvim-tree/nvim-web-devicons' }
   -- Undo as navigable tree
   use { 'mbbill/undotree' }
+  -- Fancy code outliner, code skimming
+  use { 'stevearc/aerial.nvim' }
+  -- Like aerial, but more information
+  use { 'simrat39/symbols-outline.nvim' }
+  -- Show key bindings while typing
+  use { 'folke/which-key.nvim' }
+
+  -- Comment helper
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup {}
+    end
+  }
+
+  -- Zen mode...
+  use {
+    "folke/zen-mode.nvim",
+    config = function()
+      require("zen-mode").setup {}
+    end
+  }
+
+  -- Auto pair brackets typing
+  use {
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup {}
+    end
+  }
 
   -- Fancier statusline
-  -- use 'itchyny/lightline.vim'
   use { 'hoob3rt/lualine.nvim' }
+  -- use { 'arkav/lualine-lsp-progress' }
+  -- And fancier tabs?
+  use { 'akinsho/bufferline.nvim', tag = "v3.*" }
 
   -- Markdown
   use { 'davidgranstrom/nvim-markdown-preview' }
-
-  -- LSP function signature while typing
-  use { "ray-x/lsp_signature.nvim" }
 
   -- use {
   --   'lewis6991/gitsigns.nvim',
@@ -79,26 +110,23 @@ return require('packer').startup(function(use)
   --   "williamboman/mason-lspconfig.nvim"
   -- }
 
-  -- Completion
-  use { 'onsails/lspkind-nvim' }   -- vscode-like pictograms to neovim
+  -- LSP
   use { 'neovim/nvim-lspconfig' }  -- Native LSP multi support
-  use {
-    'hrsh7th/nvim-cmp',
-    requires = {
-      { 'hrsh7th/cmp-buffer' },
-      { 'hrsh7th/cmp-cmdline' },
-      { 'hrsh7th/cmp-nvim-lua' },
-      { 'hrsh7th/cmp-nvim-lsp' },
-      { 'hrsh7th/cmp-path' },
-      { 'hrsh7th/cmp-calc' },
-      { 'petertriho/cmp-git', requires = 'nvim-lua/plenary.nvim' },
-      { 'quangnguyen30192/cmp-nvim-tags' },
-      { 'ray-x/cmp-treesitter' },
-      { 'hrsh7th/cmp-vsnip' },
-      { 'hrsh7th/vim-vsnip' },
-      { 'rafamadriz/friendly-snippets' }
-    }
-  }
+
+  -- Completion
+  use { 'hrsh7th/cmp-buffer' }
+  use { 'hrsh7th/cmp-cmdline' }
+  use { 'hrsh7th/cmp-path' }
+  use { 'hrsh7th/cmp-nvim-lsp' }
+  use { 'hrsh7th/cmp-nvim-lua' }
+  use { 'hrsh7th/cmp-nvim-lsp-signature-help' }
+  use { 'petertriho/cmp-git', requires = 'nvim-lua/plenary.nvim' }
+  use { 'ray-x/cmp-treesitter' }
+  use { 'onsails/lspkind-nvim' }   -- vscode-like pictograms to neovim
+  use { 'hrsh7th/nvim-cmp'  }
+  use { 'hrsh7th/cmp-vsnip' }
+  use { 'hrsh7th/vim-vsnip' }
+  use { 'rafamadriz/friendly-snippets' }
 
   -- Colorschemes
   use { 'ayu-theme/ayu-vim' }
@@ -114,7 +142,7 @@ return require('packer').startup(function(use)
   use { 'cocopon/iceberg.vim' }
   use { 'itchyny/landscape.vim' }
   use { 'rebelot/kanagawa.nvim' }
-  use { 'projekt0n/github-nvim-theme' }
+  use { 'projekt0n/github-nvim-theme', tag = "v0.0.7" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
