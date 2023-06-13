@@ -63,8 +63,11 @@ TRAPHUP() {
   source $XDG_CONFIG_HOME/zsh/scripts/aliases.zsh
 }
 
+alias reloadzsh='source $HOME/.zshenv && source ${ZDOTDIR:-$HOME}/.zshrc'
 alias ae='vim $XDG_CONFIG_HOME/zsh/scripts/aliases.zsh' #alias edit
 alias ar='source $XDG_CONFIG_HOME/zsh/scripts/aliases.zsh'  #alias reload
+alias aes='vim $HOME/.secrets' #secrets edit
+alias ars='source $HOME/.secrets' #secrets reload
 alias gar="killall -HUP -u \"$USER\" zsh"  #global alias reload
 
 # mimic vim functions
@@ -160,11 +163,14 @@ alias portforward='sudo ipfw add 1000 forward 127.0.0.1,3000 ip from any to any 
 
 # Homebrew
 alias brewu='brew update && brew upgrade && brew cleanup && brew doctor'
-alias bdep='brew uses --installed'
+alias buses='brew uses --installed'
+alias bdeps='brew deps --installed --tree'
 
 # Node
 alias ng='npm -g'
 alias npmOutdated='ng outdated --parseable=true | cut -d : -f 4 | xargs -n 1 ng install'
 alias ng0='ng ls --depth 0'
 alias n0='npm ls --depth 0'
+# + SvelteKit
+alias svkrun='pnpm dev --open'
 

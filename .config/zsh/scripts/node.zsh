@@ -6,3 +6,10 @@ export npm_config_devdir=$XDG_CACHE_HOME/node-gyp
 
 pathAppend $XDG_DATA_HOME/npm/bin
 
+# pnpm setup
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+

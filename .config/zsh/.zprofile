@@ -3,4 +3,3 @@ FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
 source $ZDOTDIR/.zprezto/runcoms/zprofile
 
-
