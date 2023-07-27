@@ -78,6 +78,7 @@ alias :q='exit'
 # stuff like ga *foo* and correctly have
 # git add the right stuff
 alias git='noglob git'
+alias g='git'
 alias gs='git status'
 alias gstsh='git stash'
 alias gst='git stash'
