@@ -92,8 +92,6 @@ return require('packer').startup(function(use)
   -- Fancier statusline
   use { 'hoob3rt/lualine.nvim' }
   -- use { 'arkav/lualine-lsp-progress' }
-  -- And fancier tabs?
-  use { 'akinsho/bufferline.nvim', tag = "v3.*" }
 
   -- Markdown
   use { 'davidgranstrom/nvim-markdown-preview' }

@@ -1,5 +1,5 @@
 require('nvim-treesitter.configs').setup {
-  ensure_installed = { "bash", "c", "help", "javascript", "lua", "vim", "ruby", "regex", "markdown", "markdown_inline" },
+  ensure_installed = { "bash", "c", "javascript", "lua", "vim", "ruby", "regex", "markdown", "markdown_inline" },
   -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
