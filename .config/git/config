@@ -109,8 +109,8 @@
 	# the usual default is to push all branches
 	default = upstream
 [core]
-  autocrlf = false
-  editor = vim
+	autocrlf = false
+	editor = vim
 [advice]
 	statusHints = false
 [diff]
@@ -127,4 +127,4 @@
 [pull]
 	ff = only
 [init]
-  defaultBranch = tetsuo
+	defaultBranch = tetsuo
