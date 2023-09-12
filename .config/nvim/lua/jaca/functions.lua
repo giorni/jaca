@@ -1,0 +1,2 @@
+-- Remove white spaces in the end of line
+-- %s/\s\+$//e
