@@ -1,3 +1,4 @@
+# TODO: Probably remove this, does not make sense anymore
 export RANDFILE=$XDG_CACHE_HOME/.rnd
 
 # Fix conflict between system and Homebrew

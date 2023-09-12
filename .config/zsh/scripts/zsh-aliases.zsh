@@ -7,9 +7,9 @@ alias -g H='| head'
 alias -g L="| less"
 alias -g N="| /dev/null"
 alias -g S='| sort'
-alias -g G='| grep' # now you can do: ls foo G something
+alias -g R='| rg' # now you can do: ls foo R something
 
-# Use zmv, which is amazing
+# Use zmv, zsh file renamer, which is amazing
 autoload -U zmv
 alias zmv="noglob zmv -W"
 

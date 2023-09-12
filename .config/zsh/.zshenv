@@ -32,4 +32,3 @@ export TERMINFO_DIRS=$TERMINFO:/usr/share/terminfo
 # vim - this overwrite nvim too
 # export VIMINIT=":source $XDG_CONFIG_HOME"/vim/vimrc
 
-source $ZDOTDIR/.zprezto/runcoms/zshenv
