@@ -37,14 +37,9 @@ require('nvim-treesitter.configs').setup {
   indent = { enable = true },
 
   incremental_selection = { enable = true },
-
-  rainbow = {
-    enable = true,
-    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
-    extended_mode = false, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-    max_file_lines = 1000, -- Do not enable for files with more than n lines, int
-    -- colors = {}, -- table of hex strings
-    -- termcolors = {} -- table of colour name strings
-  },
 }
 
+-- workaround for ruby when next line is 'end'
+-- https://github.com/tree-sitter/tree-sitter-ruby/issues/230
+-- https://github.com/nvim-treesitter/nvim-treesitter/issues/3363#issuecomment-1538607633
+vim.cmd('autocmd FileType ruby setlocal indentkeys-=.')

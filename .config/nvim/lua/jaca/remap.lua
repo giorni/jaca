@@ -10,3 +10,4 @@ vim.keymap.set("n", "cd", ":cd %:h<CR>:pwd<CR>") -- change whole vim working dir
 -- this is implemented at after/plugin/completion.lua, since snippet helpers are sharing this.
 -- vim.keymap.set('i', '<C-l>', [[<C-\><C-n>:call search('[>)\]}"'']', 'W')<CR>a]])
 
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
