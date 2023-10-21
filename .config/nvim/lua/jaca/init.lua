@@ -1,3 +1,6 @@
+require('jaca.set')
+require('jaca.remap')
+
 local jaca_top = vim.api.nvim_create_augroup('jaca_top', {})
 
 -- netrw
@@ -27,6 +30,10 @@ require('lazy').setup('jaca.plugins', {
   -- defaults = { lazy = true },
 })
 
-require('jaca.set')
-require('jaca.remap')
+-- require('github-theme').setup {}
+
+vim.cmd.colorscheme('oxocarbon')
+-- vim.cmd.colorscheme('spaceduck')
+-- vim.cmd.colorscheme('github_dark_high_contrast')
+
 

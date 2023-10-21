@@ -9,10 +9,10 @@ return {
   { 'tpope/vim-abolish' },
   { 'tpope/vim-surround' },
   { 'tmux-plugins/vim-tmux' },
-  -- { 'sheerun/vim-polyglot' },
+  { 'sheerun/vim-polyglot' },
 
   -- Show indentation guidelines
-  { 'lukas-reineke/indent-blankline.nvim' },
+  { 'lukas-reineke/indent-blankline.nvim', main = "ibl", opts = {} },
 
   -- Better folding
   { 'kevinhwang91/nvim-ufo', dependencies = { 'kevinhwang91/promise-async' } },
@@ -84,9 +84,9 @@ return {
   -- Colorschemes
   { 'ayu-theme/ayu-vim', lazy = true },
   -- use { 'fenetikm/falcon' }
-  { 'bluz71/vim-nightfly-guicolors', lazy = true },
-  { 'glepnir/zephyr-nvim', lazy = true },
-  { 'hrsh7th/palenight.vim', lazy = true },
+  { 'bluz71/vim-nightfly-colors', lazy = true },
+  { 'nvimdev/zephyr-nvim', lazy = true },
+  { 'drewtempelmeyer/palenight.vim', lazy = true },
   { 'rakr/vim-one', lazy = true },
   { 'joshdick/onedark.vim', lazy = true },
   { 'frenzyexists/aquarium-vim', branch = 'develop', lazy = true },
@@ -96,4 +96,18 @@ return {
   { 'itchyny/landscape.vim', lazy = true },
   { 'rebelot/kanagawa.nvim', lazy = true },
   { 'projekt0n/github-nvim-theme', lazy = true },
+  { 'nyoom-engineering/oxocarbon.nvim', lazy = true },
+
+  {
+    "ray-x/go.nvim",
+    dependencies = {  -- optional packages
+      "ray-x/guihua.lua",
+    },
+    config = function()
+      require("go").setup()
+    end,
+    event = {"CmdlineEnter"},
+    ft = {"go", 'gomod'},
+    build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+  }
 }
