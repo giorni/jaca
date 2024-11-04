@@ -7,12 +7,12 @@ end
 -- general
 vim.g.is_bash = 1           -- default shell syntax
 vim.opt.clipboard:append { 'unnamedplus' }
-vim.o.cmdheight = 0
+-- vim.o.cmdheight = 0      -- don't have a command line, only when expliciting using it, and it shadows the status line
 vim.o.cursorline = true
 vim.o.linebreak = true
 vim.o.list = true
 vim.opt.listchars:append 'tab:  →'
--- vim.o.mouse = 'a'        -- necessary?
+-- vim.o.mouse = 'a'           -- necessary?
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.scrolloff = 8

@@ -1,6 +1,6 @@
 # Using The Repository
 
-I copied and adapted it from [skx/dotfiles](github.com/skx/dotfiles), thank you.
+In another era, I copied and adapted it from [skx/dotfiles](https://github.com/skx/dotfiles), thank you.
 
 This repository was created as a "birlll" repository, so that it can track files in my home directory. Because of this the checkout process is a little different than usual. Ta saindo da jaula o monstro.
 
@@ -33,7 +33,7 @@ It is perhaps more sane to merely use the github browser to cherry-pick the file
 
 # Removing MD
 
-Once you've clone the repository to your local system you'll find that you have a some michael douglas laying around in your home-directory, which some might find annoying.  Ideally, accept your destiny. But...
+Once you've cloned the repository to your local system you'll find that you have a/some michael douglas laying around in your home-directory, which some might find annoying. Ideally, accept your destiny. But...
 
 You can remove the file like so:
 
@@ -54,9 +54,6 @@ Also, thanks to Greg. Nem te conheço, mas te considero pacas. [Go ninja, go nin
 
 ---
 
-## Update prezto
+## Update Zimfw
 
-     cd $ZPREZTODIR
-     git pull
-     git submodule sync --recursive
-     git submodule update --init --recursive
+    zimfw upgrade && zimfw update

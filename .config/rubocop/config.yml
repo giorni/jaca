@@ -8,3 +8,10 @@ Metrics:
 Layout/TrailingEmptyLines:
   EnforcedStyle: final_blank_line
   # Enabled: false
+
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+
+Style/BlockDelimiters:
+  EnforcedStyle: semantic
+

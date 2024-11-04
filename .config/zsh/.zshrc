@@ -134,3 +134,4 @@ export HISTFILE=$XDG_CACHE_HOME/zsh/.zsh_history
 # Load all custom scripts
 for config_file ($ZDOTDIR/scripts/*.zsh) source $config_file
 
+eval "$(atuin init zsh)"

@@ -15,6 +15,9 @@ alias caju="git --git-dir=$HOME/.jurubeba_lion_of_the_north --work-tree=$HOME/"
 # SSH
 alias ssh="TERM=xterm ssh"
 
+# ZSH
+alias zimup="zimfw upgrade && zimfw update"
+
 # PS
 alias psa="ps aux"
 alias psg="ps aux | grep "
@@ -44,7 +47,7 @@ alias k9='kill -9'
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 
-# Zippin - Use lrzip or lrztar, seriously...
+# Zippin - Use lrzip or lrztar, seriously... ;-D
 alias gz='tar -zcvf'
 
 if [[ $platform == 'linux' ]]; then
@@ -69,6 +72,7 @@ alias ar='source $XDG_CONFIG_HOME/zsh/scripts/aliases.zsh'  #alias reload
 alias aes='vim $HOME/.secrets' #secrets edit
 alias ars='source $HOME/.secrets' #secrets reload
 alias gar="killall -HUP -u \"$USER\" zsh"  #global alias reload
+alias httpvv='http --verify=no --verbose' # http verbose without ssl warnings
 
 # mimic vim functions
 alias :q='exit'
@@ -92,19 +96,15 @@ alias sgi='sudo gem install --no-ri --no-rdoc'
 # rake db
 alias rdm='rake db:migrate'
 alias rdmr='rake db:migrate:redo'
-# Forward port 80 to 3000
-alias portforward='sudo ipfw add 1000 forward 127.0.0.1,3000 ip from any to any 80 in'
 
 # Homebrew
 alias brewu='brew update && brew upgrade && brew cleanup && brew doctor'
 alias buses='brew uses --installed'
 alias bdeps='brew deps --installed --tree'
 
-# Node
+# Node - TODO: remove section
 alias ng='npm -g'
 alias npmOutdated='ng outdated --parseable=true | cut -d : -f 4 | xargs -n 1 ng install'
 alias ng0='ng ls --depth 0'
 alias n0='npm ls --depth 0'
-# + SvelteKit
-alias svkrun='pnpm dev --open'
 

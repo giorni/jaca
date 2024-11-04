@@ -1,8 +1,17 @@
 root = true
 insert_final_newline = true
+# trim_trailing_whitespace = true
+# Not using default trailing because current code have lots of it around
+# Every commit would add too many unrelated changes (which I already do...)
 
 [*.{sh,bash,zsh}]
 indent_style = tab
 
 [{gitconfig,**/git/config}]
 indent_style = tab
+indent_size = 4
+
+[*.{go}]
+indent_style = tab
+indent_size = 4
+
