@@ -1,0 +1,9 @@
+{
+  "fmtt": {
+    "prefix": ["fmtpf"],
+    "body": [
+      "fmt.Printf(\"%T === %+v\\n\", $1, $1)"
+    ],
+    "description": "Print var to stdout"
+  }
+}
