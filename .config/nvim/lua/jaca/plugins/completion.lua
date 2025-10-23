@@ -14,12 +14,9 @@ return {
     'onsails/lspkind-nvim',   -- vscode-like pictograms to neovim
     { 'hrsh7th/cmp-vsnip', dependencies = 'hrsh7th/vim-vsnip' },
     'rafamadriz/friendly-snippets', -- some already configured snippets
-    -- { "saadparwaiz1/cmp_luasnip", dependencies = { "L3MON4D3/LuaSnip" } },
   },
   config = function()
     local cmp = require('cmp')
-    local lspkind = require('lspkind')
-
     vim.g.vsnip_snippet_dir = vim.fn.stdpath('config') .. '/snips/'
 
     local is_whitespace = function()
@@ -110,7 +107,8 @@ return {
         { name = 'vsnip' },
         { name = 'path' },
         { name = 'nvim_lua' },
-        { name = 'nvim_lsp_signature_help' }
+        { name = 'nvim_lsp_signature_help' },
+        { name = 'codecompanion' },
       }, {
         { name = 'buffer' },
       }),
@@ -235,7 +233,7 @@ return {
     -- vsnip_ft.ruby = { 'rails' }
     -- vim.g.vsnip_filetypes = vsnip_ft
 
-    vim.g.vsnip_filetypes = { ruby = { 'rails' }}
+    vim.g.vsnip_filetypes = { ruby = { 'ruby', 'rails' }}
   end
 }
 

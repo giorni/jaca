@@ -32,7 +32,7 @@ return {
       -- indent = { highlight = highlight },
       scope = {
         highlight = highlight,
-        show_start = false,
+        -- show_start = false,
         show_end = false,
       }
     }

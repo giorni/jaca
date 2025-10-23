@@ -22,7 +22,7 @@ This repository was created as a "birlll" repository, so that it can track files
      caju commit -a  -m 'kaneda!!!'
      caju checkout tetsuo
 
-**Step five**: Install submodule dependencies (only zsh, for now):
+**Step five**: Install submodule dependencies (This is not necessary, keep it for future reference):
 
      cd .jaca
      caju submodule update --init --recursive

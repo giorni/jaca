@@ -98,5 +98,6 @@ git clone https://github.com/tmux-plugins/tpm $data/tmux/plugins/tpm
 # tic -x xterm-256color-italic.terminfo
 # tic -x tmux-256color.terminfo
 
-caju submodule update --init --recursive
+# caju submodule update --init --recursive
+# There is no more submodules
 

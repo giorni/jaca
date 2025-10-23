@@ -1,16 +1,11 @@
 vim.g.mapleader = ','
 
-if (vim.fn.has("termguicolors")) then
-  vim.o.termguicolors = true
-end
-
 -- general
 vim.g.is_bash = 1           -- default shell syntax
 vim.opt.clipboard:append { 'unnamedplus' }
 -- vim.o.cmdheight = 0      -- don't have a command line, only when expliciting using it, and it shadows the status line
 vim.o.cursorline = true
-vim.o.linebreak = true
-vim.o.list = true
+vim.o.list = true           -- show tabs, and trailing spaces
 vim.opt.listchars:append 'tab:  →'
 -- vim.o.mouse = 'a'           -- necessary?
 vim.o.number = true
@@ -24,10 +19,10 @@ vim.o.wrap = false
 
 -- indent
 vim.o.smartindent = true
-vim.o.shiftwidth = 2   -- default indentation size, from the beginning of the line
-vim.o.softtabstop = 8   -- tab KEY actual inserted spaces
-vim.o.tabstop = 2      -- normal tab char spaces size, how wide in spaces to define a tab CHAR
-vim.o.expandtab = true -- expand tab to spaces on insert
+vim.o.shiftwidth = 2    -- default indentation size, from the beginning of the line
+vim.o.softtabstop = 8   -- tab KEY actual inserted spaces, if different from tabstop, or 0 to use tabstop
+vim.o.tabstop = 2       -- normal tab char spaces size, how wide in spaces to define a tab CHAR
+vim.o.expandtab = true  -- expand tab to spaces on insert
 
 -- search
 vim.o.ignorecase = true

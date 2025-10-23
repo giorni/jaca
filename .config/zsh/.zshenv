@@ -25,9 +25,10 @@ export MYSQL_HISTFILE=$XDG_DATA_HOME/mysql/history
 # readline
 export INPUTRC=$XDG_CONFIG_HOME/readline/inputrc
 
-# terminfo
-export TERMINFO=$XDG_DATA_HOME/terminfo
-export TERMINFO_DIRS=$TERMINFO:/usr/share/terminfo
+# terminfo - not used anymore
+# This was used before when some features term features had to be compiled manually
+# export TERMINFO=$XDG_DATA_HOME/terminfo
+# export TERMINFO_DIRS=$TERMINFO:/usr/share/terminfo
 
 # vim - this overwrite nvim too
 # export VIMINIT=":source $XDG_CONFIG_HOME"/vim/vimrc

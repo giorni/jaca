@@ -3,6 +3,7 @@ return {
     'hoob3rt/lualine.nvim',
     config = function()
       local lualine = require('lualine')
+
       local filetype_ext = {
         sections = { lualine_a = { 'filetype' } },
         filetypes = { 'undotree', 'diff' }
