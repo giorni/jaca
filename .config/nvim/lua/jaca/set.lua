@@ -19,14 +19,17 @@ vim.o.wrap = false
 
 -- indent
 vim.o.smartindent = true
-vim.o.shiftwidth = 2    -- default indentation size, from the beginning of the line
+vim.o.shiftwidth = 2    -- default indentation size, ONLY from the beginning of the line
 vim.o.softtabstop = 8   -- tab KEY actual inserted spaces, if different from tabstop, or 0 to use tabstop
-vim.o.tabstop = 2       -- normal tab char spaces size, how wide in spaces to define a tab CHAR
+vim.o.tabstop = 2       -- normal tab char spaces size, how wide in spaces to define a tab CHAR on the screen
 vim.o.expandtab = true  -- expand tab to spaces on insert
 
 -- search
 vim.o.ignorecase = true
 vim.o.smartcase = true
+
+-- tags
+vim.g.gutentags_project_root = { '.jj' }
 
 -- file patterns to ignore when tab completing
 vim.opt.wildignore:append {

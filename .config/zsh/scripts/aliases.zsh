@@ -33,6 +33,8 @@ alias cls='clear;ls'
 # Show human friendly numbers and colors
 alias df='df -h'
 alias du='du -h -d 2'
+alias du0='du -h -d 0 | sort -hr'
+alias du1='du -h -d 1 | sort -hr'
 
 # Common shell functions
 alias less='less -r'
@@ -47,7 +49,6 @@ alias k9='kill -9'
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 
-# Zippin - Use lrzip or lrztar, seriously... ;-D
 alias gz='tar -zcvf'
 
 if [[ $platform == 'linux' ]]; then
@@ -72,7 +73,7 @@ alias ar='source $XDG_CONFIG_HOME/zsh/scripts/aliases.zsh'  #alias reload
 alias aes='vim $HOME/.secrets' #secrets edit
 alias ars='source $HOME/.secrets' #secrets reload
 alias gar="killall -HUP -u \"$USER\" zsh"  #global alias reload
-alias httpvv='http --verify=no --verbose' # http verbose without ssl warnings
+alias hvv='http --verify=no --verbose' # http verbose without ssl warnings
 
 # mimic vim functions
 alias :q='exit'
@@ -106,5 +107,5 @@ alias bdeps='brew deps --installed --tree'
 alias ng='npm -g'
 alias npmOutdated='ng outdated --parseable=true | cut -d : -f 4 | xargs -n 1 ng install'
 alias ng0='ng ls --depth 0'
-alias n0='npm ls --depth 0'
+alias npm0='npm ls --depth 0'
 

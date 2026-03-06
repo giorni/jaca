@@ -71,10 +71,10 @@ return {
         },
       },
       ruby_lsp = {
-        root_markers =  { '.git', 'Gemfile' },
+        root_markers =  { '.jj', '.git', 'Gemfile' },
       },
       rubocop = {
-        root_markers =  { '.git', 'Gemfile' },
+        root_markers =  { '.jj', '.git', 'Gemfile' },
       },
       -- After you fixed that little big problem regarding requires and load paths it seems that it is working really pretty very much good.
       -- solargraph ={

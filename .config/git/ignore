@@ -43,8 +43,4 @@ cscope.po.out
 Session.vim
 .netrwhist
 *~
-.editorconfig
-
-# SASS
-# ----------------------------------------------------------------------------------------------
-.sass-cache
+# .editorconfig

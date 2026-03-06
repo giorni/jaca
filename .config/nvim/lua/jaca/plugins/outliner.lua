@@ -6,7 +6,7 @@ return {
       'nvim-tree/nvim-web-devicons'
     },
     keys = {
-      { '<leader>a', vim.cmd['AerialToggle'], desc = 'Aerial (simplified symbols tree)' }
+      { '<leader>x', vim.cmd.AerialToggle, desc = 'Aerial (simplified symbols tree)' }
     },
     config = function()
       require('aerial').setup({
@@ -25,10 +25,11 @@ return {
   },
 
   {
-    'simrat39/symbols-outline.nvim',
+    -- 'simrat39/symbols-outline.nvim',
+    'hedyhli/outline.nvim',
     config = true,
     keys = {
-      { '<leader>s', vim.cmd.SymbolsOutline, desc = 'Toggle Symbols Tree' }
+      { '<leader>s', vim.cmd.Outline, desc = 'Toggle Symbols Tree' }
     }
   }
 }

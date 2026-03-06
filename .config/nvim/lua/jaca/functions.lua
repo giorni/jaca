@@ -56,3 +56,27 @@ end
 
 vim.api.nvim_create_user_command('AlignToTheInitialColumn', align_to_the_initial_column, { range = true, desc = 'Align text to the right, duh' })
 
+local function find_file_under_cursor()
+  local path = vim.fn.expand('<cfile>')
+  if path == "" then return end
+
+  while path ~= "" do
+    local file = vim.fn.findfile(path, vim.fn.getcwd() .. "/**")
+    if file ~= "" then
+      vim.api.nvim_command("edit " .. vim.fn.fnameescape(file))
+      return
+    end
+
+    -- while file not empty remove up to the next slash
+    local slash_index = path:find("/")
+    if not slash_index then
+      break
+    end
+    path = path:sub(slash_index + 1)
+  end
+
+  vim.api.nvim_echo({{ "File not found in working directory", "WarningMsg" }}, false, {})
+end
+
+vim.api.nvim_create_user_command('FindFileUnderCursor', find_file_under_cursor, { desc = 'Go to file at cursor' })
+

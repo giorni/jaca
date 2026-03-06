@@ -1,0 +1,9 @@
+# frozen_string_literal: true
+
+require 'readline'
+
+Readline.vi_editing_mode
+
+# IRB.conf[:USE_AUTOCOMPLETE] = false
+# IRB.conf[:USE_COLORIZE] = false
+
