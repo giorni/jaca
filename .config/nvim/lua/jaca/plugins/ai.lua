@@ -41,10 +41,10 @@ return {
               }
             })
           end,
-          local_ollama = function()
+          ollama1= function()
             return require("codecompanion.adapters").extend("ollama", {
               env = {
-                url = os.getenv("OLLAMA_API_URL") or "http://localhost:11434",
+                url = os.getenv("OLLAMA1_API_URL") or "http://localhost:11434",
               },
               schema = {
                 model = {
@@ -53,35 +53,35 @@ return {
               },
             })
           end,
-          -- opencode_remote = function()
-          --   return require("codecompanion.adapters").extend("opencode", {
-          --     env = {
-          --       url = os.getenv("OPENCODE_API_URL") or "http://localhost:4096",
-          --     },
-          --     schema = {
-          --       model = {
-          --         default = "qwen3-coder-next:latest",
-          --       },
-          --     },
-          --   })
-          -- end
-        }
+          ollama2 = function()
+            return require("codecompanion.adapters").extend("ollama", {
+              env = {
+                url = os.getenv("OLLAMA2_API_URL") or "http://localhost:11434",
+              },
+              schema = {
+                model = {
+                  default = "qwen3-coder-next:q8_0",
+                },
+              },
+            })
+          end
+       }
       },
       interactions = {
         chat = {
-          adapter = "local_ollama",
+          adapter = "ollama2",
           opts = {
             completion_provider = "cmp",
           }
         },
         inline = {
-          adapter = "local_ollama",
+          adapter = "ollama2",
         },
         cmd = {
-          adapter = "local_ollama",
+          adapter = "ollama2",
         },
         background = {
-          adapter = "local_ollama",
+          adapter = "ollama2",
         },
       },
       display = {

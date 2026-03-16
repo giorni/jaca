@@ -12,6 +12,10 @@ This repository was created as a "birlll" repository, so that it can track files
 
      alias caju="git --git-dir=$HOME/.jurubeba_lion_of_the_north --work-tree=$HOME/"
 
+     to ignore all files on git status: (currently .gitignore ignores all files, and adding needs to be done manually/forecefully)
+
+     caju config --local status.showUntrackedFiles no
+
 **Step three**: see which files will be over-written in your current home drectory:
 
      caju status -s -uno
