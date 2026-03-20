@@ -75,7 +75,9 @@ local function find_file_under_cursor()
     path = path:sub(slash_index + 1)
   end
 
-  vim.api.nvim_echo({{ "File not found in working directory", "WarningMsg" }}, false, {})
+  -- vim.api.nvim_echo({{ "File not found in working directory", "WarningMsg" }}, false, {})
+  -- If specific file is not found, search for it in the whole project
+  vim.cmd("Telescope find_files default_text=" .. path)
 end
 
 vim.api.nvim_create_user_command('FindFileUnderCursor', find_file_under_cursor, { desc = 'Go to file at cursor' })

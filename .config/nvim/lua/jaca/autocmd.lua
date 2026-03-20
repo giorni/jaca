@@ -10,6 +10,17 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+-- vim.api.nvim_create_autocmd('FileType', {
+--   group    = jaca_top,
+--   callback = function(args)
+--     local bopts = vim.bo[args.buf]
+--     if bopts.buftype == "" then
+--       -- Your code here
+--       print("This is a normal buffer with filetype: " .. args.match)
+--     end
+--   end,
+-- })
+
 -- -- CODECOMPANION
 -- --
 -- vim.cmd([[cab cc CodeCompanion]])

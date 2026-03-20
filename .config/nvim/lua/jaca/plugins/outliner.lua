@@ -1,13 +1,7 @@
 return {
   {
     'stevearc/aerial.nvim',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-      'nvim-tree/nvim-web-devicons'
-    },
-    keys = {
-      { '<leader>x', vim.cmd.AerialToggle, desc = 'Aerial (simplified symbols tree)' }
-    },
+    keys = { { '<leader>x', vim.cmd.AerialToggle, desc = 'Aerial (simplified symbols tree)' } },
     config = function()
       require('aerial').setup({
         backends = { 'lsp', 'treesitter', 'markdown', 'man' },
